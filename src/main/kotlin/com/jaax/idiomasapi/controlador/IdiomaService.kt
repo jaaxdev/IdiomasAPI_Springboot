@@ -1,7 +1,7 @@
 package com.jaax.idiomasapi.controlador
 
 import com.jaax.idiomasapi.modelo.Idioma
-import com.jaax.idiomasapi.modelo.dao.IdiomaRepository
+import com.jaax.idiomasapi.modelo.dao.IdiomaDAO
 import com.jaax.idiomasapi.modelo.IdiomaInterface
 import com.jaax.idiomasapi.modelo.exceptions.IdiomaException
 import com.jaax.idiomasapi.modelo.exceptions.NotFoundException
@@ -15,12 +15,12 @@ import kotlin.jvm.Throws
 class IdiomaService: IdiomaInterface {
 
     @Autowired //inyectar datos en un objeto idioma
-    val idiomaRepository: IdiomaRepository? = null
+    val idiomaDAO: IdiomaDAO? = null
 
     @Throws(IdiomaException::class)
     override fun getAll(): List<Idioma> {
         try {
-            return idiomaRepository!!.findAll()
+            return idiomaDAO!!.findAll()
         } catch(e: Exception) {
             throw IdiomaException(e.message)
         }
@@ -30,7 +30,7 @@ class IdiomaService: IdiomaInterface {
     override fun getById(id: Long): Idioma {
         val optional: Optional<Idioma> //sólo para saber si existe el objeto en la BD
         try {
-            optional = idiomaRepository!!.findById( id )
+            optional = idiomaDAO!!.findById( id )
         } catch(e: Exception) {
             throw IdiomaException(e.message)
         }
@@ -44,7 +44,7 @@ class IdiomaService: IdiomaInterface {
     @Throws(IdiomaException::class)
     override fun post(idioma: Idioma): Idioma {
         try {
-            return idiomaRepository!!.save( idioma )
+            return idiomaDAO!!.save( idioma )
         } catch(e: Exception) {
             throw IdiomaException(e.message)
         }
@@ -58,14 +58,14 @@ class IdiomaService: IdiomaInterface {
     override fun deleteById(id: Long) {
         val optional: Optional<Idioma>?
         try {
-            optional = idiomaRepository!!.findById( id )
+            optional = idiomaDAO!!.findById( id )
         } catch(e: Exception) {
             throw IdiomaException(e.message)
         } catch(e: Exception) {
             throw NotFoundException("No se encontró: $id")
         }
         if( optional.isPresent ){
-            idiomaRepository!!.deleteById( id )
+            idiomaDAO!!.deleteById( id )
         }
     }
 }

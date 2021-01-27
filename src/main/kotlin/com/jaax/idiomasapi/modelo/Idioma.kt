@@ -6,7 +6,6 @@ import javax.persistence.*
 @Table( name = "idioma" )
 data class Idioma(val codigoISO: String,
                   val nombre: String,
-                  val origen: String,
                   val numHablantes: Int ) {
 
     @Id
