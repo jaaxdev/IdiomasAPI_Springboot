@@ -1,8 +1,5 @@
 package com.jaax.idiomasapi
 
-import com.jaax.idiomasapi.controlador.IdiomaController
-import com.jaax.idiomasapi.modelo.Idioma
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

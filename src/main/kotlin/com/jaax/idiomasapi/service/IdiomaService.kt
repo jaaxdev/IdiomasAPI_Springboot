@@ -1,10 +1,10 @@
-package com.jaax.idiomasapi.controlador
+package com.jaax.idiomasapi.service
 
-import com.jaax.idiomasapi.modelo.Idioma
-import com.jaax.idiomasapi.modelo.dao.IdiomaDAO
-import com.jaax.idiomasapi.modelo.IdiomaInterface
-import com.jaax.idiomasapi.modelo.exceptions.IdiomaException
-import com.jaax.idiomasapi.modelo.exceptions.NotFoundException
+import com.jaax.idiomasapi.entities.Idioma
+import com.jaax.idiomasapi.dao.IdiomaDAO
+import com.jaax.idiomasapi.IdiomaCRUD
+import com.jaax.idiomasapi.exceptions.IdiomaException
+import com.jaax.idiomasapi.exceptions.NotFoundException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.util.*
@@ -12,7 +12,7 @@ import kotlin.jvm.Throws
 
 // 4
 @Service
-class IdiomaService: IdiomaInterface {
+class IdiomaService: IdiomaCRUD {
 
     @Autowired //inyectar datos en un objeto idioma
     val idiomaDAO: IdiomaDAO? = null

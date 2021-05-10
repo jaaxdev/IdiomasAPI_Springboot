@@ -1,8 +1,9 @@
-package com.jaax.idiomasapi.controlador
+package com.jaax.idiomasapi.controller
 
-import com.jaax.idiomasapi.modelo.Idioma
-import com.jaax.idiomasapi.modelo.exceptions.NotFoundException
-import com.jaax.idiomasapi.modelo.utils.Constantes
+import com.jaax.idiomasapi.entities.Idioma
+import com.jaax.idiomasapi.exceptions.NotFoundException
+import com.jaax.idiomasapi.utils.Constantes
+import com.jaax.idiomasapi.service.IdiomaService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
@@ -42,7 +43,7 @@ class IdiomaController {
     }
 
     @PostMapping( Constantes.ENDPOINT_IDIOMAS )
-    fun post( @RequestBody idioma: Idioma ): ResponseEntity<Any> {
+    fun post( @RequestBody idioma: Idioma): ResponseEntity<Any> {
         return try {
             idiomaService!!.post( idioma )
             val responseHeader = HttpHeaders()
@@ -54,7 +55,7 @@ class IdiomaController {
     }
 
     @PutMapping("")
-    fun putById( @RequestBody idioma: Idioma ): ResponseEntity<Any> {
+    fun putById( @RequestBody idioma: Idioma): ResponseEntity<Any> {
         return try {
             idiomaService!!.post( idioma )
             ResponseEntity( HttpStatus.OK )

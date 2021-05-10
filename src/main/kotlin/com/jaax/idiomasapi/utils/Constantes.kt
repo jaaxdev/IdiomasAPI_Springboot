@@ -1,4 +1,4 @@
-package com.jaax.idiomasapi.modelo.utils
+package com.jaax.idiomasapi.utils
 
 class Constantes {
     companion object {

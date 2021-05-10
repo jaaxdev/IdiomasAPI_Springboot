@@ -1,4 +1,4 @@
-package com.jaax.idiomasapi.modelo
+package com.jaax.idiomasapi.entities
 import javax.persistence.*
 
 // 1
