@@ -50,8 +50,18 @@ class IdiomaService: IdiomaCRUD {
         }
     }
 
-    override fun putById(id: Long) {
-        TODO("Not yet implemented")
+    override fun put(idioma: Idioma) {
+        val optional: Optional<Idioma>?
+        try {
+            optional = idiomaDAO!!.findById( idioma.id )
+        } catch(e: Exception) {
+            throw IdiomaException(e.message)
+        } catch(e: Exception) {
+            throw NotFoundException("No se encontró: $idioma.id")
+        }
+        if( optional.isPresent ){
+            idiomaDAO!!.save(idioma)
+        }
     }
 
     @Throws(IdiomaException::class, NotFoundException::class)

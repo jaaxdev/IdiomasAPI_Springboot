@@ -7,6 +7,6 @@ interface IdiomaCRUD{
     fun getAll(): List<Idioma>
     fun getById( id: Long ): Idioma
     fun post( idioma: Idioma): Idioma
-    fun putById( id: Long )
+    fun put( idioma: Idioma )
     fun deleteById(id: Long )
 }

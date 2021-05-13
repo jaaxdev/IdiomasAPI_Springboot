@@ -54,8 +54,8 @@ class IdiomaController {
         }
     }
 
-    @PutMapping("")
-    fun putById( @RequestBody idioma: Idioma): ResponseEntity<Any> {
+    @PutMapping(Constantes.ENDPOINT_IDIOMAS)
+    fun put( @RequestBody idioma: Idioma): ResponseEntity<Any> {
         return try {
             idiomaService!!.post( idioma )
             ResponseEntity( HttpStatus.OK )
@@ -66,7 +66,7 @@ class IdiomaController {
         }
     }
 
-    @DeleteMapping( "/{id}" )
+    @DeleteMapping( "${Constantes.ENDPOINT_IDIOMAS}/{id}" )
     fun deleteById( @PathVariable("id") id: Long ): ResponseEntity<Any> {
         return try {
             idiomaService!!.deleteById( id )
